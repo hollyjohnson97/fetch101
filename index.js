@@ -54,8 +54,19 @@ async function handleError(elem, url) {
     }
 }
 
+//Create a function `drawBox', which accepts two parameters: a canvas element, and a URL which refers to a simple
+// object with coordinates that you should fetch from a server.The function draws a 10x10 filled black box at the
+// given coordinates. Your drawBox function should update the coordinates and redraw the box every 1 second.
+function drawBox(canvas, url) {
+    setInterval(async function () {
+        const response = await fetch(url);
+        const coord = await response.json();
 
+        const c = canvas.getContext("2d");
+        c.fillRect(coord.x, coord.y, 10, 10);
 
+    }, 1000);
+}
 
 
 
