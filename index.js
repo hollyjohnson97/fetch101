@@ -33,3 +33,34 @@ async function showList(elem, url) {
 //Create a function `startShowingMessage` that takes two parameters: an element and a string that is a URL.
 // The function will use `setInterval` to make the following task every 1s: fetch the URL and put the response text
 // into the text content of the provided element.
+function startShowingMessage(elem, url) {
+
+
+    setInterval(async function() {
+        const response = await fetch(url);
+        const text = await response.text();
+        elem.textContent = text;
+    }, 1000);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
